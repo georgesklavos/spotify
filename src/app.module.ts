@@ -9,6 +9,7 @@ import { User } from './entities/User.entity';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { SongsModule } from './songs/songs.module';
+import { AlbumsModule } from './albums/albums.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -23,10 +24,12 @@ import { SongsModule } from './songs/songs.module';
       database: process.env.DATABASE_NAME,
       entities: [Album, Song, User],
       synchronize: true,
+      logging: true,
     }),
     AuthModule,
     UsersModule,
     SongsModule,
+    AlbumsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
